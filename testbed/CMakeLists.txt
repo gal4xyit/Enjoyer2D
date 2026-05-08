@@ -39,6 +39,15 @@ if(EXISTS "${ENJOYER2D_TESTBED_MAIN}")
             SDL3::SDL3
             glm::glm
     )
+
+    if(WIN32)
+        add_custom_command(TARGET enjoyer2d_testbed POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                $<TARGET_RUNTIME_DLLS:enjoyer2d_testbed>
+                $<TARGET_FILE_DIR:enjoyer2d_testbed>
+            COMMAND_EXPAND_LISTS
+        )
+    endif()
 else()
     message(STATUS "Skipping enjoyer2d_testbed: testbed/src/main.cpp does not exist yet.")
 endif()
