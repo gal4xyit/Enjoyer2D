@@ -80,6 +80,15 @@ build\testbed\Debug\enjoyer2d_testbed.exe
 
 CMake copies required runtime DLLs next to the testbed executable on Windows.
 
+## Running Tests
+
+Build and run the Catch2 test suite:
+
+```bash
+cmake --build build --target enjoyer2d_tests
+ctest --test-dir build --output-on-failure
+```
+
 ## Building on Windows
 
 Recommended setup:
@@ -134,15 +143,6 @@ ctest --test-dir build -C Debug --output-on-failure
 ```
 
 If saved scenes do not appear when running from Visual Studio, set the debugger working directory to the project root folder. The project also copies `saved_scenes/` next to the executable after building the testbed.
-
-## Running Tests
-
-Build and run the Catch2 test suite:
-
-```bash
-cmake --build build --target enjoyer2d_tests
-ctest --test-dir build --output-on-failure
-```
 
 ## Testbed Controls
 
