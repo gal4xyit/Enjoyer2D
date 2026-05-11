@@ -42,6 +42,7 @@ namespace Enjoyer2D {
             return contact;
         }
 
+        // Choose the axis with the smallest overlap that gives the contact normal and the minimum translation direction
         const float overlapRight = a.max.x - b.min.x;
         const float overlapLeft = b.max.x - a.min.x;
         const float overlapUp = a.max.y - b.min.y;
@@ -106,6 +107,7 @@ namespace Enjoyer2D {
         return contact;
     }
 
+    // Clamp the circle center to the box bounds to find the closest point on the box
     [[nodiscard]] inline Contact collideBoxCircle(const Body& boxBody, const Body& circleBody) {
         Contact contact;
 

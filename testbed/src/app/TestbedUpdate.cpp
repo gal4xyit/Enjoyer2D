@@ -35,6 +35,7 @@ void updateCamera(View& view, const InputState& input, const TestbedState& testb
     }
 }
 
+// Accumulator lets physics run at a fixed timestep independent of render FPS
 void updateSimulation(TestbedState& testbed, float frameDt) {
     testbed.stats.physicsStepsThisFrame = 0;
 

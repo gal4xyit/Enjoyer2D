@@ -7,6 +7,7 @@
 #include "TestbedActions.hpp"
 #include "editor/TestbedUi.hpp"
 #include "TestbedUpdate.hpp"
+#include "scenes/SceneFiles.hpp"
 
 #include <imgui.h>
 #include <imgui_impl_sdl3.h>
@@ -40,6 +41,7 @@ bool TestbedApp::init() {
     ImGui_ImplSDLRenderer3_Init(renderer);
 
     loadTestbedScene(testbed, SceneId::FreeFall);
+    refreshSceneFiles(testbed.editor.sceneFiles);
 
     previousCounter = SDL_GetPerformanceCounter();
     frequency = static_cast<double>(SDL_GetPerformanceFrequency());
@@ -87,6 +89,7 @@ void TestbedApp::handleEvents() {
     }
 }
 
+// SDL performance counters provide high resolution frame timings
 void TestbedApp::updateFrame() {
     const Uint64 currentCounter = SDL_GetPerformanceCounter();
 
@@ -121,6 +124,7 @@ void TestbedApp::renderFrame() {
 
     drawWorld(renderer, testbed.world, renderContext);
 
+    // Overlay object helper to show look of spawned object
     if (testbed.editor.showSpawnPreview && testbed.editor.hasMouseWorld && testbed.editor.activeTool != EditorTool::Select) {
 
         const Enjoyer2D::Body preview = makePreviewBody(testbed.editor);

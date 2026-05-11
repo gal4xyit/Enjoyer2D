@@ -8,6 +8,7 @@
 #include <imgui_impl_sdl3.h>
 
 void handleEvent(const SDL_Event& event, TestbedState& testbed, InputState& input, const View& view, bool& running) {
+    // ImGui proceeds SDL window event first so editor can capture mouse/keyboard inputs
     ImGui_ImplSDL3_ProcessEvent(&event);
     const ImGuiIO& currentIo = ImGui::GetIO();
 

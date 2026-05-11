@@ -25,6 +25,10 @@ if(EXISTS "${ENJOYER2D_TESTBED_MAIN}")
             src/app/TestbedUpdate.hpp
             src/app/TestbedApp.cpp
             src/app/TestbedApp.hpp
+            src/scenes/SceneSerialization.cpp
+            src/scenes/SceneSerialization.hpp
+            src/scenes/SceneFiles.cpp
+            src/scenes/SceneFiles.hpp
     )
 
     target_include_directories(enjoyer2d_testbed
@@ -38,7 +42,18 @@ if(EXISTS "${ENJOYER2D_TESTBED_MAIN}")
             enjoyer2d_imgui
             SDL3::SDL3
             glm::glm
+            nlohmann_json::nlohmann_json
     )
+
+    set(ENJOYER2D_SCENE_DIR "${CMAKE_SOURCE_DIR}/saved_scenes")
+
+    if(EXISTS "${ENJOYER2D_SCENE_DIR}")
+        add_custom_command(TARGET enjoyer2d_testbed POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy_directory
+                "${ENJOYER2D_SCENE_DIR}"
+                "$<TARGET_FILE_DIR:enjoyer2d_testbed>/saved_scenes"
+        )
+    endif()
 
     if(WIN32)
         add_custom_command(TARGET enjoyer2d_testbed POST_BUILD
@@ -47,6 +62,9 @@ if(EXISTS "${ENJOYER2D_TESTBED_MAIN}")
                 $<TARGET_FILE_DIR:enjoyer2d_testbed>
             COMMAND_EXPAND_LISTS
         )
+
+        set(ENJOYER2D_SCENE_DIR "${CMAKE_SOURCE_DIR}/saved_scenes")
+
     endif()
 else()
     message(STATUS "Skipping enjoyer2d_testbed: testbed/src/main.cpp does not exist yet.")

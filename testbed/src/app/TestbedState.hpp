@@ -6,6 +6,10 @@
 
 #include <glm/vec2.hpp>
 
+#include <filesystem>
+#include <vector>
+#include <string>
+
 struct SimulationState {
     bool paused = false;
     bool singleStepRequest = false;
@@ -52,6 +56,12 @@ struct SpawnSettings {
     }
 };
 
+struct SceneFileState {
+    std::vector<std::filesystem::path> files;
+    int selectedIndex = -1;
+    char saveName[128] = "new_scene";
+};
+
 struct EditorState {
     int selectedBodyIndex = -1;
     EditorTool activeTool = EditorTool::Select;
@@ -61,7 +71,9 @@ struct EditorState {
     bool hasMouseWorld = false;
     glm::vec2 mouseWorld {0.0f, 0.0f};
 
-    const char* statusMessage = "";
+    std::string statusMessage;
+
+    SceneFileState sceneFiles;
 };
 
 struct TestbedState {

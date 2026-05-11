@@ -21,6 +21,7 @@ inline void resetDebugTrails(DebugState& debug, const Enjoyer2D::World& world) {
     debug.bodyTrails.resize(world.getBodyCount());
 }
 
+// Trails are indexed by body indexes (so they must be reset every body storage change)
 inline void recordDebugTrails(DebugState& debug, const Enjoyer2D::World& world) {
     const std::vector<Enjoyer2D::Body>& bodies = world.getBodies();
 

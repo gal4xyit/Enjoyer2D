@@ -25,6 +25,11 @@ FetchContent_Declare(
     URL https://github.com/catchorg/Catch2/archive/refs/tags/v3.8.0.tar.gz
 )
 
-FetchContent_MakeAvailable(glm SDL3 Catch2)
+FetchContent_Declare(
+        nlohmann_json
+        URL https://github.com/nlohmann/json/archive/refs/tags/v3.11.3.tar.gz
+)
+
+FetchContent_MakeAvailable(glm SDL3 Catch2 nlohmann_json)
 
 set(ENJOYER2D_IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/imgui" CACHE PATH "Path to vendored Dear ImGui")

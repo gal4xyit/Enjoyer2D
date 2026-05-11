@@ -119,6 +119,8 @@ namespace Enjoyer2D {
             contacts.clear();
         }
 
+        // Fixed step simulation
+        // integrates body motion -> detects contacts between bodies -> corrects penetration -> solves collision impulses
         void step(float dt) {
             if (dt <= 0) {
                 return;
@@ -148,6 +150,8 @@ namespace Enjoyer2D {
         int velocityIterations {8};
         int positionIterations {3};
 
+        // Semi-implicit Euler body integration
+        // Velocity updated before position
         void integrateBody(Body& body, float dt) const{
             if (body.isStatic() || body.getInverseMass() <= 0.0f) {
                 body.clearForces();
@@ -177,7 +181,9 @@ namespace Enjoyer2D {
         }
 
         void correctPosition() {
+            // Percentage of penetration corrected per solver pass
             constexpr float percent = 0.2f;
+            // Small allowed penetration used to reduce jitter from tiny overlaps
             constexpr float slop = 0.04f;
 
             for (const Contact& contact : contacts) {
@@ -199,6 +205,7 @@ namespace Enjoyer2D {
             }
         }
 
+        // Impulse collision response with restitution and Coulomb style friction
         void resolveCollision() {
             for (const Contact& contact : contacts) {
                 Body& a = bodies[contact.bodyA];

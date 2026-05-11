@@ -1,0 +1,180 @@
+{
+    "bodies": [
+        {
+            "friction": 1.0,
+            "mass": 0.0,
+            "position": [
+                0.0,
+                -2.0
+            ],
+            "restitution": 0.20000000298023224,
+            "shape": {
+                "height": 1.0,
+                "type": "box",
+                "width": 14.0
+            },
+            "static": true,
+            "velocity": [
+                0.0,
+                0.0
+            ]
+        },
+        {
+            "friction": 0.5,
+            "mass": 1.0,
+            "position": [
+                -2.2486979961395264,
+                -1.0835689306259155
+            ],
+            "restitution": 0.0,
+            "shape": {
+                "height": 1.0,
+                "type": "box",
+                "width": 1.0
+            },
+            "static": false,
+            "velocity": [
+                0.0,
+                -0.055727146565914154
+            ]
+        },
+        {
+            "friction": 0.5,
+            "mass": 1.0,
+            "position": [
+                -2.2383463382720947,
+                -0.2080458104610443
+            ],
+            "restitution": 0.0,
+            "shape": {
+                "height": 1.0,
+                "type": "box",
+                "width": 1.0
+            },
+            "static": false,
+            "velocity": [
+                0.0,
+                -0.10584919154644012
+            ]
+        },
+        {
+            "friction": 0.5,
+            "mass": 1.0,
+            "position": [
+                -2.2640624046325684,
+                0.6785632371902466
+            ],
+            "restitution": 0.0,
+            "shape": {
+                "height": 1.0,
+                "type": "box",
+                "width": 1.0
+            },
+            "static": false,
+            "velocity": [
+                0.0,
+                -0.1481858193874359
+            ]
+        },
+        {
+            "friction": 0.5,
+            "mass": 1.0,
+            "position": [
+                -2.240429639816284,
+                1.5779945850372314
+            ],
+            "restitution": 0.0,
+            "shape": {
+                "height": 1.0,
+                "type": "box",
+                "width": 1.0
+            },
+            "static": false,
+            "velocity": [
+                0.0,
+                -0.1810651272535324
+            ]
+        },
+        {
+            "friction": 0.5,
+            "mass": 1.0,
+            "position": [
+                -2.2067058086395264,
+                2.4916000366210938
+            ],
+            "restitution": 0.0,
+            "shape": {
+                "height": 1.0,
+                "type": "box",
+                "width": 1.0
+            },
+            "static": false,
+            "velocity": [
+                0.0,
+                -0.20336027443408966
+            ]
+        },
+        {
+            "friction": 0.5,
+            "mass": 1.0,
+            "position": [
+                -2.1738932132720947,
+                3.4202988147735596
+            ],
+            "restitution": 0.0,
+            "shape": {
+                "height": 1.0,
+                "type": "box",
+                "width": 1.0
+            },
+            "static": false,
+            "velocity": [
+                0.0,
+                -0.21450784802436829
+            ]
+        },
+        {
+            "friction": 0.5,
+            "mass": 1.0,
+            "position": [
+                -2.1680338382720947,
+                4.364556312561035
+            ],
+            "restitution": 0.0,
+            "shape": {
+                "height": 1.0,
+                "type": "box",
+                "width": 1.0
+            },
+            "static": false,
+            "velocity": [
+                0.0,
+                -0.21450784802436829
+            ]
+        },
+        {
+            "friction": 0.5,
+            "mass": 1.0,
+            "position": [
+                -8.603840827941895,
+                3.8134114742279053
+            ],
+            "restitution": 0.0,
+            "shape": {
+                "radius": 0.5,
+                "type": "circle"
+            },
+            "static": false,
+            "velocity": [
+                20.0,
+                0.0
+            ]
+        }
+    ],
+    "gravity": [
+        0.0,
+        -9.800000190734863
+    ],
+    "positionIterations": 4,
+    "velocityIterations": 12
+}

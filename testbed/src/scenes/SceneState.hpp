@@ -10,7 +10,7 @@
 struct SceneState {
     SceneId current {SceneId::FreeFall};
 
-     static constexpr std::array<SceneId, 5> availableScenes {
+    inline static constexpr std::array<SceneId, 5> availableScenes {
         SceneId::FreeFall,
         SceneId::Bounce,
         SceneId::Stacking,

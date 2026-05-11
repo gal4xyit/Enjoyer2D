@@ -10,6 +10,8 @@
 int pickBodyAtPoint(const Enjoyer2D::World& world, const glm::vec2& point) {
     const std::vector<Enjoyer2D::Body>& bodies = world.getBodies();
 
+    // Iterates backwards so the most recent created overlapping body is selected first
+    // (item on top of another is selected first)
     for (std::size_t i = bodies.size(); i-- > 0;) {
         const Enjoyer2D::Body& body = bodies[i];
 
